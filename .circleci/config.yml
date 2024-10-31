@@ -22,14 +22,13 @@ jobs:
       - checkout:
           path: ~/project/
       - node/install:
-          node-version: '20.9'
+          node-version: '23.1.0'
       - run: node --version
       - run: npm i -g @railway/cli
       - run:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            echo $RAILWAY_TOKEN | railway auth login
             railway link -p 2edcc61a-8dc3-4c64-a8f4-c86df4b44abf
             railway up --detach
 
