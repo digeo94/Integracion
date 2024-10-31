@@ -29,7 +29,6 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            echo $RAILWAY_TOKEN | railway login 94c338e3-c4d7-41f5-96c2-98f88c28b533
             railway link -p 2edcc61a-8dc3-4c64-a8f4-c86df4b44abf
             railway up --detach
 
