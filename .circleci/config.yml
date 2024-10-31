@@ -29,6 +29,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
+            echo $RAILWAY_TOKEN | railway login --token
             railway link
             railway up --detach
 
@@ -46,6 +47,5 @@ workflows:
     jobs:
       - deploy_app_to_railway:
           filters:
-            branches:
-              only:
-                - main
+            tags:
+              only: /^v\d+\.\d+\.\d+$/ # Example: only deploy on version tags like "v1.0.0"
